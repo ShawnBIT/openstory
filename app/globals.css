@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 背景层级 */
+    --bg-base: #0a0a0a;
+    --bg-elevated: #141414;
+    --bg-muted: #1a1a1a;
+    /* 边框与分割 */
+    --border: #262626;
+    --border-accent: #333333;
+    /* 文字 */
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1a1;
+    --text-muted: #737373;
+    /* 点缀 */
+    --accent-green: #22c55e;
+    --accent-blue: #3b82f6;
+    --accent-glow: rgba(34, 197, 94, 0.15);
+    --ring: var(--border-accent);
+    --foreground: var(--text-primary);
+  }
+
+  body {
+    @apply bg-base text-primary antialiased;
+  }
+}
