@@ -3,9 +3,10 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SiGooglescholar, SiGithub, SiZhihu } from "react-icons/si";
+import { HiOutlineMail } from "react-icons/hi";
 import { useLocale } from "@/components/providers/LanguageProvider";
 
-const socialIcons = [SiGooglescholar, SiGithub, SiZhihu] as const;
+const socialIcons = [SiGooglescholar, SiGithub, SiZhihu, HiOutlineMail] as const;
 
 const container = {
   hidden: { opacity: 0 },
@@ -86,6 +87,12 @@ export function HeroSection() {
                 </span>
               ))}
             </motion.p>
+            <p
+              className="mt-4 max-w-lg font-mono text-xs leading-loose md:text-sm whitespace-nowrap"
+              style={{ color: "var(--text-primary)" }}
+            >
+              {hero.slogan}
+            </p>
             {/* 社交媒体：圆形图标链接 */}
             <motion.div
               variants={item}
@@ -107,16 +114,10 @@ export function HeroSection() {
                 );
               })}
             </motion.div>
-            <motion.p
-              variants={item}
-              className="mt-5 max-w-lg font-mono text-sm leading-loose text-secondary md:text-base"
-            >
-              {hero.slogan}
-            </motion.p>
           </div>
         </div>
         {/* 下方：座右铭，斜体 + 淡入动效 */}
-        <div className="mt-1.5 w-full border-t border-border pt-4">
+        <div className="mt-8 w-full border-t border-border pt-4">
           <motion.blockquote
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
