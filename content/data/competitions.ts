@@ -22,7 +22,7 @@ export type Competition = {
 export const competitions: Competition[] = [
   {
     id: "good-anchor",
-    name: "快手好主播识别建模大赛",
+    name: "快手：好主播识别建模大赛",
     date: "2025.04",
     rank: "公司冠军",
     rankDetail: "1/88",
@@ -49,7 +49,7 @@ export const competitions: Competition[] = [
   },
   {
     id: "coco-panoptic-2019",
-    name: "COCO 2019 全景分割任务",
+    name: "ICCV 2019 workshop：COCO全景分割比赛",
     date: "2019.10",
     rank: "世界冠军",
     rankDetail: "1/13",
@@ -71,7 +71,7 @@ export const competitions: Competition[] = [
   },
   {
     id: "ai-challenger-retinal",
-    name: "AI 挑战赛・眼底水肿病变自动分割与检测",
+    name: "创新工厂：眼底水肿病变自动分割AI挑战赛",
     date: "2018.10",
     rank: "全国第四名",
     rankDetail: "前 3%",

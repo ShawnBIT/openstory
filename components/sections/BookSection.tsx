@@ -69,7 +69,30 @@ function BookItem({
         <p className="mt-0.5 text-sm text-muted">{book.author}</p>
         {book.note && (
           <p className="mt-1 whitespace-pre-line text-sm leading-relaxed text-secondary">
-            {book.note}
+            {typeof book.note === "string" ? (
+              book.note
+            ) : (() => {
+              const h = book.note.highlight;
+              const highlights = Array.isArray(h) ? h : [h];
+              if (highlights.length === 0) return book.note.text;
+              const regex = new RegExp(
+                `(${highlights.map((s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})`
+              );
+              const parts = book.note.text.split(regex);
+              return (
+                <>
+                  {parts.map((part, j) =>
+                    highlights.includes(part) ? (
+                      <span key={j} className="font-medium text-accent-green">
+                        {part}
+                      </span>
+                    ) : (
+                      part
+                    )
+                  )}
+                </>
+              );
+            })()}
           </p>
         )}
       </div>

@@ -155,7 +155,7 @@ export const enContent: LocaleContent = {
     },
     {
       id: "coco-panoptic-2019",
-      name: "COCO 2019 Panoptic Segmentation",
+      name: "ICCV 2019 Workshop: COCO Panoptic Segmentation",
       date: "2019.10",
       rank: "World Champion",
       rankDetail: "1/13",
@@ -214,16 +214,20 @@ export const enContent: LocaleContent = {
       author: "Carol S. Dweck",
       date: "2026.02",
       cover: "/books/growth-mindset.jpg",
-      note:
-        "Fixed vs growth mindset: we constantly toggle between the two. Fixed: talent is static, fear of judgment, effort as shame. Growth: ability can be developed, embrace challenge, failure as a step up. The book gave me the courage to tolerate failure—not just how to succeed, but how to face an imperfect self with calm and hope. Either succeed or grow; that idea keeps me challenging myself, trying newer tech and harder problems.",
+      note: {
+        text: "Fixed vs growth mindset: we constantly toggle between the two. Fixed: talent is static, fear of judgment, effort as shame. Growth: ability can be developed, embrace challenge, failure as a step up. The book gave me the courage to tolerate failure—not just how to succeed, but how to face an imperfect self with calm and hope. Either succeed or grow; that idea keeps me challenging myself, trying newer tech and harder problems.",
+        highlight: "Growth: ability can be developed, embrace challenge, failure as a step up.",
+      },
     },
     {
       title: "The Distant Savior",
       author: "Dou Dou (Li Xue)",
       date: "2017.04",
       cover: "/books/yaoyuan.jpg",
-      note:
-        "Core: break the weak-culture mindset, build a strong one. Why can some people see through the game while others drift? Through the character Ding Yuanying, the book reveals “cultural attributes.” There is no savior; redemption comes from awakening your own cognition. So-called “myths” are just outcomes of seeing things as they are. Recommended by Zhilan in university; “see things as they are” became a guiding principle.",
+      note: {
+        text: "Core: break the weak-culture mindset, build a strong one. Why can some people see through the game while others drift? Through the character Ding Yuanying, the book reveals “cultural attributes.” There is no savior; redemption comes from awakening your own cognition. So-called “myths” are just outcomes of seeing things as they are. Recommended by Zhilan in university; “see things as they are” became a guiding principle.",
+        highlight: "Core: break the weak-culture mindset, build a strong one.",
+      },
     },
   ],
 };
