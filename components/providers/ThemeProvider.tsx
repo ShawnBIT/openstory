@@ -22,7 +22,6 @@ function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "dark";
   const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
   if (stored === "light" || stored === "dark") return stored;
-  if (window.matchMedia("(prefers-color-scheme: light)").matches) return "light";
   return "dark";
 }
 
