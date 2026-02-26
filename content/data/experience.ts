@@ -4,8 +4,8 @@ export type ExperienceEntry = {
   logo?: string;
   role: string;
   period: string;
-  /** 实习 / 全职 */
-  type?: "实习" | "全职";
+  /** 实习 / 全职（中英文均可，locale 使用） */
+  type?: "实习" | "全职" | "Intern" | "Full-time";
   /** 描述：字符串为段落；数组为分点，项可为字符串或 { text, highlight } 高亮片段，highlight 可为字符串或字符串数组 */
   description?: string | (string | { text: string; highlight: string | string[] })[];
   /** 公司或团队链接 */
