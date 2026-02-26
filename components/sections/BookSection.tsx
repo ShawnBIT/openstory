@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { BookOpen } from "lucide-react";
 import { bookEntries } from "@/content/data/books";
+import { DateBadge } from "@/components/ui/DateBadge";
 
 export function BookSection() {
   return (
@@ -44,26 +45,29 @@ function BookItem({
 }) {
   const inner = (
     <>
-      <div className="flex h-14 w-10 shrink-0 items-center justify-center overflow-hidden rounded border border-border bg-surface">
+      <div className="relative h-28 w-20 shrink-0 overflow-hidden rounded border border-border bg-surface sm:h-36 sm:w-24">
         {book.cover ? (
           <Image
             src={book.cover}
             alt=""
-            width={40}
-            height={56}
+            fill
             className="object-cover"
+            sizes="96px"
           />
         ) : (
-          <BookOpen className="h-5 w-5 text-accent-green" />
+          <span className="flex h-full w-full items-center justify-center">
+            <BookOpen className="h-8 w-8 text-accent-green" />
+          </span>
         )}
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-2">
           <span className="font-medium text-primary">{book.title}</span>
-          <span className="text-sm text-muted">{book.author}</span>
+          {book.date && <DateBadge>{book.date}</DateBadge>}
         </div>
+        <p className="mt-0.5 text-sm text-muted">{book.author}</p>
         {book.note && (
-          <p className="mt-1 text-sm leading-relaxed text-secondary">
+          <p className="mt-1 whitespace-pre-line text-sm leading-relaxed text-secondary">
             {book.note}
           </p>
         )}
