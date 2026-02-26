@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Sun, Moon } from "lucide-react";
+import { useTheme } from "@/components/providers/ThemeProvider";
 
 const navLinks = [
   { href: "#hero", label: "Home" },
@@ -13,6 +15,7 @@ const navLinks = [
 ];
 
 export function Header() {
+  const { theme, toggleTheme } = useTheme();
   return (
     <motion.header
       initial={{ opacity: 0, y: -10 }}
@@ -27,18 +30,33 @@ export function Header() {
         >
           WangShen
         </Link>
-        <ul className="flex items-center gap-6">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-sm text-secondary hover:text-primary transition-colors"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-6">
+          <ul className="flex items-center gap-6">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-sm text-secondary hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            title={theme === "dark" ? "切换到浅色" : "切换到深色"}
+            className="rounded p-2 text-secondary transition-colors hover:bg-surface hover:text-primary"
+            aria-label={theme === "dark" ? "切换到浅色模式" : "切换到深色模式"}
+          >
+            {theme === "dark" ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
+          </button>
+        </div>
       </nav>
     </motion.header>
   );

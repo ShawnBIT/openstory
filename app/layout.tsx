@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Header } from "@/components/layout/Header";
 
 const inter = Inter({
@@ -18,18 +19,29 @@ export const metadata: Metadata = {
     "Exploring the intersection of data, algorithms, and human vibes.",
 };
 
+/** 首屏前注入主题 class，避免闪烁 */
+const themeScript = `
+(function(){
+  var t = localStorage.getItem('theme');
+  document.documentElement.classList.add(t === 'light' ? 'light' : 'dark');
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className="dark">
+    <html lang="zh-CN" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} min-h-screen bg-base font-sans text-primary`}
       >
-        <Header />
-        {children}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <ThemeProvider>
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
