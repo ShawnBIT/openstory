@@ -19,15 +19,6 @@ export type Paper = {
 export const papers: Paper[] = [
   {
     title:
-      "QARM V2: Quantitative Alignment Multi-Modal Recommendation for Reasoning User Sequence Modeling",
-    venue: "arXiv preprint",
-    year: "2026",
-    citations: 0,
-    authors: "T Xia, J Zhang, Y Liu, H Dou, T Yin, J Cao, X Liang, T Xie, L Liu, X Chen, et al.",
-    pdf: "https://arxiv.org/abs/2602.08559",
-  },
-  {
-    title:
       "OneLive: Dynamically Unified Generative Framework for Live-Streaming Recommendation",
     venue: "arXiv preprint",
     year: "2026",
@@ -37,6 +28,15 @@ export const papers: Paper[] = [
     abstract:
       "A dynamically unified generative framework for live-streaming recommendation.",
     pdf: "https://arxiv.org/abs/2602.08612",
+  },
+  {
+    title:
+      "QARM V2: Quantitative Alignment Multi-Modal Recommendation for Reasoning User Sequence Modeling",
+    venue: "arXiv preprint",
+    year: "2026",
+    citations: 0,
+    authors: "T Xia, J Zhang, Y Liu, H Dou, T Yin, J Cao, X Liang, T Xie, L Liu, X Chen, et al.",
+    pdf: "https://arxiv.org/abs/2602.08559",
   },
   {
     title: "LARM: LLM-Alignment Live-Streaming Recommendation",
@@ -119,6 +119,7 @@ export const papers: Paper[] = [
     year: "2019",
     citations: 3,
     authors: "S Wang, T Liu, H Liu, Y Ma, Z Li, Z Wang, X Zhou, G Yu, E Zhou, X Zhang, et al.",
+    coFirstCount: 3,
     abstract:
       "Technical report on panoptic segmentation exploring context relation for the COCO and Mapillary workshop at ICCV 2019.",
   },

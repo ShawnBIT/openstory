@@ -12,6 +12,7 @@ const navLinks = [
   { href: "#research", label: "Research" },
   { href: "#projects", label: "Projects" },
   { href: "#competitions", label: "Competitions" },
+  { href: "#book", label: "Books" },
   { href: "#life", label: "Life" },
 ];
 
@@ -24,27 +25,20 @@ export function Header() {
       transition={{ duration: 0.4 }}
       className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-base/80 backdrop-blur-md"
     >
-      <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-        <Link
-          href="/"
-          className="font-mono text-sm font-medium text-primary hover:text-accent-green transition-colors"
-        >
-          WangShen
-        </Link>
-        <div className="flex items-center gap-6">
-          <ul className="flex items-center gap-6">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm text-secondary hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <button
+      <nav className="mx-auto flex h-14 max-w-5xl items-center justify-center gap-6 px-6">
+        <ul className="flex items-center gap-6">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="text-sm text-secondary hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <button
             type="button"
             onClick={toggleTheme}
             title={theme === "dark" ? "切换到浅色" : "切换到深色"}
@@ -57,7 +51,6 @@ export function Header() {
               <Moon className="h-4 w-4" />
             )}
           </button>
-        </div>
       </nav>
     </motion.header>
   );

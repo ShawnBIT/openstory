@@ -20,7 +20,7 @@ export const experienceEntries: ExperienceEntry[] = [
     company: "快手科技 推荐模型部",
     logo: "/experience/kuaishiou.png",
     role: "直播生成式推荐和精排模型子方向负责人",
-    period: "2021.08 — 2026.02",
+    period: "2021.08 — 至今",
     type: "全职",
     description: [
       "Mentor 指导 4 名正式员工和 3 名实习生，主导直播 OneLive 和直播 LARM 从 0 到 1 的落地全流程。",
