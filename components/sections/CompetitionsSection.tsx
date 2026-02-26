@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Trophy } from "lucide-react";
 import { competitions } from "@/content/data/competitions";
+import { DateBadge } from "@/components/ui/DateBadge";
 
 export function CompetitionsSection() {
   return (
@@ -52,9 +53,7 @@ function CompetitionCard({
             </h3>
             <div className="flex flex-nowrap items-center gap-3 whitespace-nowrap">
               {competition.date && (
-                <span className="shrink-0 rounded border border-border-accent bg-surface px-2.5 py-1 font-mono text-sm font-medium text-primary">
-                  {competition.date}
-                </span>
+                <DateBadge>{competition.date}</DateBadge>
               )}
               <span className="inline-flex shrink-0 items-center gap-1.5 rounded border border-accent-green/50 bg-accent-green/10 px-2.5 py-1 font-mono text-sm font-medium text-accent-green">
                 <Trophy className="h-4 w-4" />

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { lifeEntries } from "@/content/data/life";
+import { DateBadge } from "@/components/ui/DateBadge";
 
 export function LifeGallerySection() {
   return (
@@ -44,11 +45,11 @@ function LifeEntryCard({
       className="rounded-lg border border-border bg-elevated/50 p-5 backdrop-blur-sm md:p-6"
     >
       <div className="mb-4 flex flex-wrap items-baseline gap-3">
-        <span className="font-mono text-sm text-muted">{entry.date}</span>
+        <DateBadge>{entry.date}</DateBadge>
         <h3 className="text-lg font-semibold text-primary">{entry.title}</h3>
       </div>
       {entry.quote && (
-        <p className="mb-6 font-serif text-sm italic leading-relaxed text-secondary">
+        <p className="mb-6 whitespace-pre-line font-serif text-sm italic leading-relaxed text-secondary">
           {entry.quote}
         </p>
       )}

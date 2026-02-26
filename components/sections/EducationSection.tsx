@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
 import { educationEntries } from "@/content/data/education";
+import { DateBadge } from "@/components/ui/DateBadge";
 
 export function EducationSection() {
   return (
@@ -60,7 +61,7 @@ function EducationItem({
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-2">
           <h3 className="font-medium text-primary">{entry.school}</h3>
-          <span className="text-sm text-muted">{entry.period}</span>
+          <DateBadge>{entry.period}</DateBadge>
         </div>
         <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-secondary">
           <span>{entry.degree}</span>

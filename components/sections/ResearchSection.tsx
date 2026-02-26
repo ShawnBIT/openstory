@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FileText, Code2 } from "lucide-react";
 import { papers } from "@/content/data/papers";
+import { DateBadge } from "@/components/ui/DateBadge";
 
 /** 共同一作：前 coFirst 位作者名后加 † */
 function applyCoFirst(authors: string, coFirst: number): string {
@@ -119,7 +120,7 @@ function PaperItem({
           <span className="rounded border border-border-accent bg-surface px-2 py-0.5 font-mono">
             {paper.venue}
           </span>
-          <span>{paper.year}</span>
+          <DateBadge className="px-2 py-0.5 text-xs">{paper.year}</DateBadge>
         </div>
       </div>
     </motion.li>
