@@ -10,7 +10,7 @@ import type { LocaleContent } from "./types";
 export const zhContent: LocaleContent = {
   hero: {
     name: hero.name,
-    tags: hero.tags,
+    tags: [...hero.tags],
     slogan: hero.slogan,
     motto: hero.motto,
     mottoAuthor: hero.mottoAuthor,
