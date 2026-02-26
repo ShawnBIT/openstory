@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/sections/HeroSection";
+import { VisitCount } from "@/components/sections/VisitCount";
 import { EducationSection } from "@/components/sections/EducationSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { ResearchSection } from "@/components/sections/ResearchSection";
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
+      <VisitCount />
       <EducationSection />
       <ExperienceSection />
       <ResearchSection />
