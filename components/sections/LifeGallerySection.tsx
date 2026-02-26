@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { lifeEntries } from "@/content/data/life";
 
 export function LifeGallerySection() {
   return (
@@ -16,10 +18,60 @@ export function LifeGallerySection() {
           Life / Gallery
         </h2>
         <p className="text-2xl font-semibold text-primary">生活与相册</p>
-        <p className="mt-4 text-secondary">
-          简约的照片墙或生活片段记录。
-        </p>
+        <ul className="mt-8 space-y-12">
+          {lifeEntries.map((entry, i) => (
+            <LifeEntryCard key={entry.id} entry={entry} index={i} />
+          ))}
+        </ul>
       </motion.div>
     </section>
+  );
+}
+
+function LifeEntryCard({
+  entry,
+  index,
+}: {
+  entry: (typeof lifeEntries)[0];
+  index: number;
+}) {
+  return (
+    <motion.li
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.06 }}
+      className="rounded-lg border border-border bg-elevated/50 p-5 backdrop-blur-sm md:p-6"
+    >
+      <div className="mb-4 flex flex-wrap items-baseline gap-3">
+        <span className="font-mono text-sm text-muted">{entry.date}</span>
+        <h3 className="text-lg font-semibold text-primary">{entry.title}</h3>
+      </div>
+      {entry.quote && (
+        <p className="mb-6 font-serif text-sm italic leading-relaxed text-secondary">
+          {entry.quote}
+        </p>
+      )}
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:gap-3">
+        {entry.images.map((src, j) => (
+          <motion.div
+            key={src}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: 0.05 * j }}
+            className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-surface"
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 224px"
+            />
+          </motion.div>
+        ))}
+      </div>
+    </motion.li>
   );
 }
