@@ -40,7 +40,7 @@ export function HeroSection() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative flex w-full max-w-2xl flex-col rounded-lg border border-border-accent bg-elevated/50 p-8 shadow-[0_0_0_1px_var(--border)] backdrop-blur-md md:p-12"
+        className="relative flex w-full max-w-4xl flex-col rounded-lg border border-border-accent bg-elevated/50 p-8 shadow-[0_0_0_1px_var(--border)] backdrop-blur-md md:p-12"
         style={{
           boxShadow:
             "0 0 0 1px var(--border-accent), 0 0 40px var(--accent-glow)",
