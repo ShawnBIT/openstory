@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { FileText, Code2 } from "lucide-react";
-import { papers } from "@/content/data/papers";
+import { useLocale } from "@/components/providers/LanguageProvider";
 import { DateBadge } from "@/components/ui/DateBadge";
+import type { Paper } from "@/content/data/papers";
 
 /** 共同一作：前 coFirst 位作者名后加 † */
 function applyCoFirst(authors: string, coFirst: number): string {
@@ -35,6 +36,8 @@ function highlightAuthor(authors: string) {
 }
 
 export function ResearchSection() {
+  const { content } = useLocale();
+  const { papers, sectionTitles, labels } = content;
   return (
     <section id="research" className="border-t border-border py-20 px-6">
       <motion.div
@@ -47,11 +50,11 @@ export function ResearchSection() {
         <h2 className="font-mono text-sm font-medium text-accent-green mb-2">
           Research / Papers
         </h2>
-        <p className="text-2xl font-semibold text-primary">论文</p>
-        <p className="mt-1 text-sm text-muted">来源 Google Scholar</p>
+        <p className="text-2xl font-semibold text-primary">{sectionTitles.research}</p>
+        <p className="mt-1 text-sm text-muted">{sectionTitles.researchSub}</p>
         <ul className="mt-8 space-y-4">
           {papers.map((paper, i) => (
-            <PaperItem key={`${paper.title}-${paper.year}`} paper={paper} index={i} />
+            <PaperItem key={`${paper.title}-${paper.year}`} paper={paper} index={i} coFirstLabel={labels.coFirst} />
           ))}
         </ul>
       </motion.div>
@@ -62,9 +65,11 @@ export function ResearchSection() {
 function PaperItem({
   paper,
   index,
+  coFirstLabel,
 }: {
-  paper: (typeof papers)[0];
+  paper: Paper;
   index: number;
+  coFirstLabel: string;
 }) {
   return (
     <motion.li
@@ -112,7 +117,7 @@ function PaperItem({
                 : paper.authors
             )}
             {paper.coFirstCount != null && (
-              <span className="ml-1.5 text-muted">† 共同一作</span>
+              <span className="ml-1.5 text-muted">{coFirstLabel}</span>
             )}
           </p>
         )}

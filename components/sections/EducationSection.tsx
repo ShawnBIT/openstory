@@ -3,10 +3,13 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
-import { educationEntries } from "@/content/data/education";
+import { useLocale } from "@/components/providers/LanguageProvider";
 import { DateBadge } from "@/components/ui/DateBadge";
+import type { EducationEntry } from "@/content/data/education";
 
 export function EducationSection() {
+  const { content } = useLocale();
+  const { education, sectionTitles, labels } = content;
   return (
     <section id="education" className="border-t border-border py-20 px-6">
       <motion.div
@@ -19,10 +22,10 @@ export function EducationSection() {
         <h2 className="font-mono text-sm font-medium text-accent-green mb-2">
           Education
         </h2>
-        <p className="text-2xl font-semibold text-primary">教育背景</p>
+        <p className="text-2xl font-semibold text-primary">{sectionTitles.education}</p>
         <ul className="mt-8 space-y-4">
-          {educationEntries.map((entry, i) => (
-            <EducationItem key={`${entry.school}-${entry.period}`} entry={entry} index={i} />
+          {education.map((entry, i) => (
+            <EducationItem key={`${entry.school}-${entry.period}`} entry={entry} index={i} labels={labels} />
           ))}
         </ul>
       </motion.div>
@@ -33,9 +36,11 @@ export function EducationSection() {
 function EducationItem({
   entry,
   index,
+  labels,
 }: {
-  entry: (typeof educationEntries)[0];
+  entry: EducationEntry;
   index: number;
+  labels: { lab: string; advisor: string; researchDirections: string };
 }) {
   return (
     <motion.li
@@ -80,11 +85,11 @@ function EducationItem({
         </div>
         {(entry.lab || entry.advisor || (entry.researchDirections && entry.researchDirections.length > 0)) && (
           <p className="mt-2 text-sm text-secondary">
-            {entry.lab && <>实验室：{entry.lab}</>}
+            {entry.lab && <>{labels.lab}：{entry.lab}</>}
             {entry.lab && entry.advisor && "；"}
             {entry.advisor && (
               <>
-                导师：
+                {labels.advisor}：
                 {entry.advisorUrl ? (
                   <a
                     href={entry.advisorUrl}
@@ -101,7 +106,7 @@ function EducationItem({
             )}
             {entry.advisor && entry.researchDirections?.length ? "；" : ""}
             {entry.researchDirections && entry.researchDirections.length > 0 && (
-              <>研究方向：{entry.researchDirections.join("、")}</>
+              <>{labels.researchDirections}：{entry.researchDirections.join("、")}</>
             )}
           </p>
         )}

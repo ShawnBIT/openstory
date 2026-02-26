@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 import { useTheme } from "@/components/providers/ThemeProvider";
+import { useLocale } from "@/components/providers/LanguageProvider";
 
 const navLinks = [
   { href: "#hero", label: "Home" },
@@ -18,6 +19,7 @@ const navLinks = [
 
 export function Header() {
   const { theme, toggleTheme } = useTheme();
+  const { lang, toggleLang } = useLocale();
   return (
     <motion.header
       initial={{ opacity: 0, y: -10 }}
@@ -38,6 +40,15 @@ export function Header() {
             </li>
           ))}
         </ul>
+        <button
+          type="button"
+          onClick={toggleLang}
+          title={lang === "zh" ? "Switch to English" : "切换到中文"}
+          className="rounded px-2.5 py-1.5 text-sm font-medium text-secondary transition-colors hover:bg-surface hover:text-primary"
+          aria-label={lang === "zh" ? "Switch to English" : "切换到中文"}
+        >
+          {lang === "zh" ? "EN" : "中文"}
+        </button>
         <button
             type="button"
             onClick={toggleTheme}

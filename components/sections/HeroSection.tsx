@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SiGooglescholar, SiGithub, SiZhihu } from "react-icons/si";
-import { hero } from "@/lib/constants";
+import { useLocale } from "@/components/providers/LanguageProvider";
 
 const socialIcons = [SiGooglescholar, SiGithub, SiZhihu] as const;
 
@@ -28,6 +28,8 @@ const item = {
 };
 
 export function HeroSection() {
+  const { content } = useLocale();
+  const hero = content.hero;
   return (
     <section
       id="hero"

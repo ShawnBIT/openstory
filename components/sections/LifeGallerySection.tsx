@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { lifeEntries } from "@/content/data/life";
+import { useLocale } from "@/components/providers/LanguageProvider";
 import { DateBadge } from "@/components/ui/DateBadge";
+import type { LifeEntry } from "@/content/data/life";
 
 export function LifeGallerySection() {
+  const { content } = useLocale();
+  const { life, sectionTitles } = content;
   return (
     <section id="life" className="border-t border-border py-20 px-6">
       <motion.div
@@ -18,9 +21,9 @@ export function LifeGallerySection() {
         <h2 className="font-mono text-sm font-medium text-accent-green mb-2">
           Life / Gallery
         </h2>
-        <p className="text-2xl font-semibold text-primary">生活与相册</p>
+        <p className="text-2xl font-semibold text-primary">{sectionTitles.life}</p>
         <ul className="mt-8 space-y-12">
-          {lifeEntries.map((entry, i) => (
+          {life.map((entry, i) => (
             <LifeEntryCard key={entry.id} entry={entry} index={i} />
           ))}
         </ul>
@@ -33,7 +36,7 @@ function LifeEntryCard({
   entry,
   index,
 }: {
-  entry: (typeof lifeEntries)[0];
+  entry: LifeEntry;
   index: number;
 }) {
   return (

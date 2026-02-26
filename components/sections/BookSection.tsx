@@ -3,10 +3,13 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { BookOpen } from "lucide-react";
-import { bookEntries } from "@/content/data/books";
+import { useLocale } from "@/components/providers/LanguageProvider";
 import { DateBadge } from "@/components/ui/DateBadge";
+import type { BookEntry } from "@/content/data/books";
 
 export function BookSection() {
+  const { content } = useLocale();
+  const { books, sectionTitles, labels } = content;
   return (
     <section id="book" className="border-t border-border py-20 px-6">
       <motion.div
@@ -19,14 +22,12 @@ export function BookSection() {
         <h2 className="font-mono text-sm font-medium text-accent-green mb-2">
           Books
         </h2>
-        <p className="text-2xl font-semibold text-primary">喜欢的书</p>
-        {bookEntries.length === 0 ? (
-          <p className="mt-6 text-sm text-muted">
-            暂无书目，可在 content/data/books.ts 中填写。
-          </p>
+        <p className="text-2xl font-semibold text-primary">{sectionTitles.books}</p>
+        {books.length === 0 ? (
+          <p className="mt-6 text-sm text-muted">{labels.booksEmpty}</p>
         ) : (
           <ul className="mt-8 space-y-4">
-            {bookEntries.map((book, i) => (
+            {books.map((book, i) => (
               <BookItem key={`${book.title}-${book.author}`} book={book} index={i} />
             ))}
           </ul>
@@ -40,7 +41,7 @@ function BookItem({
   book,
   index,
 }: {
-  book: (typeof bookEntries)[0];
+  book: BookEntry;
   index: number;
 }) {
   const inner = (

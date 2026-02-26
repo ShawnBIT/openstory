@@ -3,10 +3,13 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Trophy } from "lucide-react";
-import { competitions } from "@/content/data/competitions";
+import { useLocale } from "@/components/providers/LanguageProvider";
 import { DateBadge } from "@/components/ui/DateBadge";
+import type { Competition } from "@/content/data/competitions";
 
 export function CompetitionsSection() {
+  const { content } = useLocale();
+  const { competitions, sectionTitles } = content;
   return (
     <section id="competitions" className="border-t border-border py-20 px-6">
       <motion.div
@@ -19,7 +22,7 @@ export function CompetitionsSection() {
         <h2 className="font-mono text-sm font-medium text-accent-green mb-2">
           Competitions
         </h2>
-        <p className="text-2xl font-semibold text-primary">比赛经历</p>
+        <p className="text-2xl font-semibold text-primary">{sectionTitles.competitions}</p>
         <ul className="mt-8 space-y-6">
           {competitions.map((comp, i) => (
             <CompetitionCard key={comp.id} competition={comp} index={i} />
@@ -34,7 +37,7 @@ function CompetitionCard({
   competition,
   index,
 }: {
-  competition: (typeof competitions)[0];
+  competition: Competition;
   index: number;
 }) {
   return (

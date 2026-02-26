@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLocale } from "@/components/providers/LanguageProvider";
 
 export function ProjectsSection() {
+  const { content } = useLocale();
+  const { sectionTitles } = content;
   return (
     <section id="projects" className="border-t border-border py-20 px-6">
       <motion.div
@@ -15,9 +18,9 @@ export function ProjectsSection() {
         <h2 className="font-mono text-sm font-medium text-accent-green mb-2">
           Projects (Vibe Coding)
         </h2>
-        <p className="text-2xl font-semibold text-primary">AI 辅助开发项目</p>
+        <p className="text-2xl font-semibold text-primary">{sectionTitles.projects}</p>
         <p className="mt-4 text-secondary">
-          展示通过 AI 辅助开发的小型产品，突出创新和速度感。数据来自 content/data/projects.json。
+          {sectionTitles.projectsSub}
         </p>
       </motion.div>
     </section>

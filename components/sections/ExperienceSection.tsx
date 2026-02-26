@@ -3,10 +3,13 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Briefcase } from "lucide-react";
-import { experienceEntries } from "@/content/data/experience";
+import { useLocale } from "@/components/providers/LanguageProvider";
 import { DateBadge } from "@/components/ui/DateBadge";
+import type { ExperienceEntry } from "@/content/data/experience";
 
 export function ExperienceSection() {
+  const { content } = useLocale();
+  const { experience, sectionTitles, labels } = content;
   return (
     <section id="experience" className="border-t border-border py-20 px-6">
       <motion.div
@@ -19,16 +22,17 @@ export function ExperienceSection() {
         <h2 className="font-mono text-sm font-medium text-accent-green mb-2">
           Experience
         </h2>
-        <p className="text-2xl font-semibold text-primary">工作与实习</p>
-        {experienceEntries.length === 0 ? (
-          <p className="mt-6 text-sm text-muted">暂无记录，可在 content/data/experience.ts 中填写。</p>
+        <p className="text-2xl font-semibold text-primary">{sectionTitles.experience}</p>
+        {experience.length === 0 ? (
+          <p className="mt-6 text-sm text-muted">{labels.experienceEmpty}</p>
         ) : (
           <ul className="mt-8 space-y-4">
-            {experienceEntries.map((entry, i) => (
+            {experience.map((entry, i) => (
               <ExperienceItem
                 key={`${entry.company}-${entry.period}`}
                 entry={entry}
                 index={i}
+                mentorLabel={labels.mentor}
               />
             ))}
           </ul>
@@ -41,9 +45,11 @@ export function ExperienceSection() {
 function ExperienceItem({
   entry,
   index,
+  mentorLabel,
 }: {
-  entry: (typeof experienceEntries)[0];
+  entry: ExperienceEntry;
   index: number;
+  mentorLabel: string;
 }) {
   const companyNode = entry.link ? (
     <a
@@ -94,7 +100,7 @@ function ExperienceItem({
           {entry.mentor && (
             <>
               {" · "}
-              Mentor：
+              {mentorLabel}：
               {entry.mentorUrl ? (
                 <a
                   href={entry.mentorUrl}
