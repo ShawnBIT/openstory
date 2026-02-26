@@ -1,5 +1,7 @@
 export type EducationEntry = {
   school: string;
+  /** 学院/研究院，如 前沿交叉学科研究院 */
+  institute?: string;
   /** 学校 Logo 路径，如 /education/pku.png */
   logo?: string;
   degree: string;
@@ -21,6 +23,7 @@ export type EducationEntry = {
 export const educationEntries: EducationEntry[] = [
   {
     school: "北京大学",
+    institute: "前沿交叉学科研究院",
     logo: "/education/pku.png",
     degree: "数据科学理学硕士",
     period: "2017.09 — 2020.07",
@@ -30,13 +33,15 @@ export const educationEntries: EducationEntry[] = [
   },
   {
     school: "北京大学",
+    institute: "国家发展研究院",
     logo: "/education/pku.png",
-    degree: "经济学双学位",
+    degree: "经济学本科双学位",
     period: "2015.09 — 2018.07",
     gpa: "GPA：3.09/4.0",
   },
   {
     school: "北京理工大学",
+    institute: "数学与统计学院",
     logo: "/education/bit.svg",
     degree: "统计学理学学士",
     period: "2013.09 — 2017.07",

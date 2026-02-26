@@ -65,7 +65,9 @@ function EducationItem({
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-baseline gap-2">
-          <h3 className="font-medium text-primary">{entry.school}</h3>
+          <h3 className="font-medium text-primary">
+            {entry.school}{entry.institute ? ` · ${entry.institute}` : ""}
+          </h3>
           <DateBadge>{entry.period}</DateBadge>
         </div>
         <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-secondary">

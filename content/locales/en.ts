@@ -46,6 +46,7 @@ export const enContent: LocaleContent = {
   education: [
     {
       school: "Peking University",
+      institute: "Academy for Advanced Interdisciplinary Studies",
       logo: "/education/pku.png",
       degree: "M.S. in Data Science",
       period: "2017.09 — 2020.07",
@@ -55,13 +56,15 @@ export const enContent: LocaleContent = {
     },
     {
       school: "Peking University",
+      institute: "National School of Development",
       logo: "/education/pku.png",
-      degree: "Double Degree in Economics",
+      degree: "Undergraduate Double Degree in Economics",
       period: "2015.09 — 2018.07",
       gpa: "GPA: 3.09/4.0",
     },
     {
       school: "Beijing Institute of Technology",
+      institute: "School of Mathematics and Statistics",
       logo: "/education/bit.svg",
       degree: "B.S. in Statistics",
       period: "2013.09 — 2017.07",
