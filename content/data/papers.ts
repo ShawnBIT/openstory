@@ -23,11 +23,36 @@ export const papers: Paper[] = [
     venue: "arXiv preprint",
     year: "2026",
     citations: 0,
-    authors: "S Wang, Y Huang, R Yang, S Wen, P Xu, J Cao, Y Liu, K Cai, C Guo, et al.",
+    authors:
+      "S Wang, Y Huang, R Yang, S Wen, P Xu, J Cao, Y Liu, K Cai, C Guo, et al.",
     coFirstCount: 5,
     abstract:
       "A dynamically unified generative framework for live-streaming recommendation.",
     pdf: "https://arxiv.org/abs/2602.08612",
+  },
+  {
+    title:
+      "From Agnostic to Specific: Latent Preference Diffusion for Multi-Behavior Sequential Recommendation",
+    venue: "KDD",
+    year: "2026",
+    citations: 0,
+    authors:
+      "R Yang, X Li, J Sheng, J Cao, X Lin, S Wang, S Yang, Z Liu, T Liu",
+    abstract:
+      "FatsMB, a latent diffusion based framework that transfers user preferences from behavior-agnostic to behavior-specific for multi-behavior sequential recommendation.",
+    pdf: "https://arxiv.org/pdf/2602.23132v1",
+  },
+  {
+    title:
+      "MaRI: Accelerating Ranking Model Inference via Structural Re-parameterization in Large Scale Recommendation System",
+    venue: "arXiv preprint",
+    year: "2026",
+    citations: 0,
+    authors:
+      "Y Huang, P Xu, S Wang, C Lao, J Cao, S Wen, S Yang, Z Liu, H Li, K Gai",
+    abstract:
+      "MaRI, a matrix re-parameterized inference framework that accelerates ranking model inference via structural re-parameterization without accuracy loss.",
+    pdf: "https://arxiv.org/html/2602.23105v1",
   },
   {
     title:
