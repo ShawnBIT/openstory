@@ -192,7 +192,7 @@ export const enContent: LocaleContent = {
       title: "Goodbye, Iceland 🇮🇸",
       quote:
         "I will still take many detours and be disappointed by many “achievements,” but in the end everything will fulfill its meaning.",
-      images: ["/gallery/iceland/1.jpg", "/gallery/iceland/2.jpg", "/gallery/iceland/3.jpg", "/gallery/iceland/4.jpg", "/gallery/iceland/5.jpg", "/gallery/iceland/6.jpg", "/gallery/iceland/7.jpg", "/gallery/iceland/8.jpg", "/gallery/iceland/9.jpg"],
+      images: ["/gallery/iceland/1.jpg", "/gallery/iceland/3.jpg", "/gallery/iceland/5.jpg", "/gallery/iceland/6.jpg", "/gallery/iceland/7.jpg", "/gallery/iceland/9.jpg"],
     },
     {
       id: "thirty-birthday-2025",

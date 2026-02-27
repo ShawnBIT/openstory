@@ -33,7 +33,7 @@ export function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm text-secondary hover:text-primary transition-colors"
+                className="text-base text-secondary hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>
@@ -44,7 +44,7 @@ export function Header() {
           type="button"
           onClick={toggleLang}
           title={lang === "zh" ? "Switch to English" : "切换到中文"}
-          className="rounded px-2.5 py-1.5 text-sm font-medium text-secondary transition-colors hover:bg-surface hover:text-primary"
+          className="rounded px-2.5 py-1.5 text-base font-medium text-secondary transition-colors hover:bg-surface hover:text-primary"
           aria-label={lang === "zh" ? "Switch to English" : "切换到中文"}
         >
           {lang === "zh" ? "EN" : "中文"}

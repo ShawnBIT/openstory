@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "推荐算法工程师 · 个人站",
+  title: "Open Story",
   description:
     "Exploring the intersection of data, algorithms, and human vibes.",
 };
