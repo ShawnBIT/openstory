@@ -38,10 +38,6 @@ function highlightAuthor(authors: string) {
 export function ResearchSection() {
   const { content, lang } = useLocale();
   const { papers, sectionTitles, labels } = content;
-  const countText =
-    lang === "zh"
-      ? `论文总数：${papers.length} 篇`
-      : `Total: ${papers.length} papers`;
   return (
     <section id="research" className="border-t border-border py-20 px-6">
       <motion.div
@@ -56,7 +52,25 @@ export function ResearchSection() {
         </h2>
         <p className="text-2xl font-semibold text-primary">{sectionTitles.research}</p>
         <p className="mt-1 text-sm text-muted">{sectionTitles.researchSub}</p>
-        <p className="mt-2 text-sm text-secondary">{countText}</p>
+        <p className="mt-2 text-sm text-secondary">
+          {lang === "zh" ? (
+            <>
+              论文总数：
+              <span className="font-mono font-semibold text-accent-green">
+                {papers.length}
+              </span>
+              {" 篇"}
+            </>
+          ) : (
+            <>
+              Total:{" "}
+              <span className="font-mono font-semibold text-accent-green">
+                {papers.length}
+              </span>{" "}
+              papers
+            </>
+          )}
+        </p>
         <ul className="mt-6 space-y-4">
           {papers.map((paper, i) => (
             <PaperItem key={`${paper.title}-${paper.year}`} paper={paper} index={i} coFirstLabel={labels.coFirst} />
