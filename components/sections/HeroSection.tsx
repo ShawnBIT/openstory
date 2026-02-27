@@ -122,12 +122,12 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="font-serif text-sm italic leading-relaxed text-secondary"
+            className="font-serif text-base italic leading-relaxed text-secondary"
           >
             <p className="tracking-wide">
               &ldquo;{hero.motto}&rdquo;
             </p>
-            <footer className="mt-2 text-right text-xs not-italic text-muted tracking-widest">
+            <footer className="mt-2 text-right text-sm not-italic text-muted tracking-widest">
               — {hero.mottoAuthor}
             </footer>
           </motion.blockquote>
