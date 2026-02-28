@@ -223,6 +223,16 @@ export const enContent: LocaleContent = {
       },
     },
     {
+      title: "What I Talk About When I Talk About Running",
+      author: "Haruki Murakami (Japan)",
+      date: "2024.02",
+      cover: "/books/running.jpg",
+      note: {
+        text: "As runners we all know the struggle of hitting the wall and the freedom after the breakthrough. Murakami captures it perfectly: \"Pain is inevitable. Suffering is optional.\" For me the marathon isn't just 42.195 km—it's a practice of self-confirmation. \"For me, the most important thing was to have beaten my previous self, even if only by a little.\" If you've ever run alone through the morning streets, searching for the edge of your will in the sound of your heartbeat, this book is fuel. It tells you why we have to run.",
+        highlight: "For me, the most important thing was to have beaten my previous self, even if only by a little.",
+      },
+    },
+    {
       title: "The Distant Savior",
       author: "Dou Dou (Li Xue)",
       date: "2017.04",
