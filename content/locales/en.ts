@@ -18,6 +18,7 @@ export const enContent: LocaleContent = {
       { name: "Google Scholar", href: "https://scholar.google.com.hk/citations?user=rvic5IoAAAAJ&hl=zh-CN" },
       { name: "GitHub", href: "https://github.com/ShawnBIT" },
       { name: "Zhihu", href: "https://www.zhihu.com/people/hellowangshushu" },
+      { name: "Xiaohongshu", href: "https://www.xiaohongshu.com/user/profile/59e310c095c935285d870581" },
       { name: "Email", href: "mailto:wangshen@pku.edu.cn" },
     ],
   },

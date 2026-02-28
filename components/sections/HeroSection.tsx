@@ -6,7 +6,8 @@ import { SiGooglescholar, SiGithub, SiZhihu } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
 import { useLocale } from "@/components/providers/LanguageProvider";
 
-const socialIcons = [SiGooglescholar, SiGithub, SiZhihu, HiOutlineMail] as const;
+/** 与 hero.socials 顺序一致：Google Scholar、GitHub、知乎、小红书、Email；小红书用文字「小红书」便于辨认 */
+const socialIcons = [SiGooglescholar, SiGithub, SiZhihu, null, HiOutlineMail] as const;
 
 const container = {
   hidden: { opacity: 0 },
@@ -76,7 +77,7 @@ export function HeroSection() {
               className="mt-3.5 flex flex-nowrap items-center justify-center gap-x-1.5 whitespace-nowrap text-sm md:text-base"
               style={{ color: "var(--accent-green)" }}
             >
-              {hero.tags.map((tag, i) => (
+              {hero.tags.map((tag: string, i: number) => (
                 <span key={tag} className="inline-flex shrink-0 items-center gap-1.5 font-medium tracking-tight">
                   {i > 0 && (
                     <span className="select-none opacity-60" aria-hidden>
@@ -98,8 +99,9 @@ export function HeroSection() {
               variants={item}
               className="mt-4 flex items-center justify-center gap-3"
             >
-              {hero.socials.map((social, i) => {
+              {hero.socials.map((social: { name: string; href: string }, i: number) => {
                 const Icon = socialIcons[i];
+                const isXiaohongshu = social.name === "小红书" || social.name === "Xiaohongshu";
                 return (
                   <a
                     key={social.name}
@@ -109,7 +111,13 @@ export function HeroSection() {
                     title={social.name}
                     className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border-accent bg-elevated text-secondary transition-colors hover:border-accent-green/50 hover:text-accent-green"
                   >
-                    <Icon className="h-4 w-4" />
+                    {isXiaohongshu ? (
+                      <span className="text-[8px] font-medium leading-none tracking-tight">
+                        小红书
+                      </span>
+                    ) : (
+                      Icon != null && <Icon className="h-4 w-4" />
+                    )}
                   </a>
                 );
               })}
