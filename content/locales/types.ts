@@ -5,8 +5,9 @@ import type { Paper } from "@/content/data/papers";
 import type { Competition } from "@/content/data/competitions";
 import type { LifeEntry } from "@/content/data/life";
 import type { BookEntry } from "@/content/data/books";
+import type { ToolEntry } from "@/content/data/tools";
 
-export type { EducationEntry, ExperienceEntry, Paper, Competition, LifeEntry, BookEntry };
+export type { EducationEntry, ExperienceEntry, Paper, Competition, LifeEntry, BookEntry, ToolEntry };
 
 export type LocaleContent = {
   hero: {
@@ -26,6 +27,8 @@ export type LocaleContent = {
     projectsSub: string;
     competitions: string;
     competitionsSub: string;
+    tools: string;
+    toolsSub: string;
     books: string;
     booksSub: string;
     life: string;
@@ -40,11 +43,13 @@ export type LocaleContent = {
     coFirst: string;
     experienceEmpty: string;
     booksEmpty: string;
+    toolsEmpty: string;
   };
   education: EducationEntry[];
   experience: ExperienceEntry[];
   papers: Paper[];
   competitions: Competition[];
   life: LifeEntry[];
+  tools: ToolEntry[];
   books: BookEntry[];
 };

@@ -1,4 +1,5 @@
 import type { LocaleContent } from "./types";
+import { toolEntries } from "@/content/data/tools";
 
 export const enContent: LocaleContent = {
   hero: {
@@ -29,6 +30,8 @@ export const enContent: LocaleContent = {
     projectsSub: "Small products built with AI-assisted development. Data from content/data/projects.json.",
     competitions: "Competitions",
     competitionsSub: "",
+    tools: "AI Tools",
+    toolsSub: "AI tools I use and recommend",
     books: "Books",
     booksSub: "",
     life: "Life & Gallery",
@@ -42,6 +45,7 @@ export const enContent: LocaleContent = {
     coFirst: "† Co-first author",
     experienceEmpty: "No entries yet. Add content in content/data/experience.ts.",
     booksEmpty: "No books yet. Add content in content/data/books.ts.",
+    toolsEmpty: "No tools yet. Add content in content/data/tools.ts.",
   },
   education: [
     {
@@ -211,6 +215,7 @@ export const enContent: LocaleContent = {
       images: ["/gallery/fullm/1.jpg", "/gallery/fullm/2.jpg", "/gallery/fullm/3.jpg"],
     },
   ],
+  tools: toolEntries,
   books: [
     {
       title: "Mindset: The New Psychology of Success",
