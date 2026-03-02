@@ -1,5 +1,6 @@
 import type { LocaleContent } from "./types";
 import { toolEntries } from "@/content/data/tools";
+import { projectEntries } from "@/content/data/projects";
 
 export const enContent: LocaleContent = {
   hero: {
@@ -28,7 +29,7 @@ export const enContent: LocaleContent = {
     research: "Research",
     researchSub: "From Google Scholar",
     projects: "Projects (Vibe Coding)",
-    projectsSub: "Small products built with AI-assisted development. Data from content/data/projects.json.",
+    projectsSub: "",
     competitions: "Competitions",
     competitionsSub: "",
     tools: "AI Tools",
@@ -47,6 +48,7 @@ export const enContent: LocaleContent = {
     experienceEmpty: "No entries yet. Add content in content/data/experience.ts.",
     booksEmpty: "No books yet. Add content in content/data/books.ts.",
     toolsEmpty: "No tools yet. Add content in content/data/tools.ts.",
+    projectsEmpty: "No projects yet. Add content in content/data/projects.ts.",
   },
   education: [
     {
@@ -216,6 +218,7 @@ export const enContent: LocaleContent = {
       images: ["/gallery/fullm/1.jpg", "/gallery/fullm/2.jpg", "/gallery/fullm/3.jpg"],
     },
   ],
+  projects: projectEntries,
   tools: toolEntries,
   books: [
     {

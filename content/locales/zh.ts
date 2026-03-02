@@ -6,6 +6,7 @@ import { competitions } from "@/content/data/competitions";
 import { lifeEntries } from "@/content/data/life";
 import { bookEntries } from "@/content/data/books";
 import { toolEntries } from "@/content/data/tools";
+import { projectEntries } from "@/content/data/projects";
 import type { LocaleContent } from "./types";
 
 export const zhContent: LocaleContent = {
@@ -23,7 +24,7 @@ export const zhContent: LocaleContent = {
     research: "论文",
     researchSub: "来源 Google Scholar",
     projects: "AI 辅助开发项目",
-    projectsSub: "展示通过 AI 辅助开发的小型产品，突出创新和速度感。数据来自 content/data/projects.json。",
+    projectsSub: "",
     competitions: "比赛经历",
     competitionsSub: "",
     tools: "常用 AI 工具",
@@ -42,12 +43,14 @@ export const zhContent: LocaleContent = {
     experienceEmpty: "暂无记录，可在 content/data/experience.ts 中填写。",
     booksEmpty: "暂无书目，可在 content/data/books.ts 中填写。",
     toolsEmpty: "暂无推荐，可在 content/data/tools.ts 中填写。",
+    projectsEmpty: "暂无项目，可在 content/data/projects.ts 中填写。",
   },
   education: educationEntries,
   experience: experienceEntries,
   papers,
   competitions,
   life: lifeEntries,
+  projects: projectEntries,
   tools: toolEntries,
   books: bookEntries,
 };
