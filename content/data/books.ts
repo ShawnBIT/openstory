@@ -1,7 +1,7 @@
 export type BookEntry = {
   title: string;
   author: string;
-  /** 推荐日期，如 2026.02 */
+  /** 推荐日期，如 2025.02 */
   date?: string;
   /** 简短推荐语，可为纯字符串或带高亮片段 */
   note?: string | { text: string; highlight: string | string[] };
@@ -11,15 +11,26 @@ export type BookEntry = {
   link?: string;
 };
 
+/** 按推荐时间倒序（最近在前） */
 export const bookEntries: BookEntry[] = [
   {
     title: "终身成长：重新定义成功的思维模式",
     author: "卡罗尔·德韦克 (Carol S. Dweck)",
-    date: "2026.02",
+    date: "2025.02",
     cover: "/books/growth-mindset.jpg",
     note: {
       text: "固定型思维 vs 成长型思维：我们的一生其实都在两种思维间博弈。固定型思维认为才华是静态的，时刻担心被评价，视努力为耻辱；成长型思维认为能力可以通过努力培养，热爱挑战，视失败为进阶的阶梯。读完《终身成长》，我最大的收获是获得了容错的勇气。它不仅仅是在教你如何成功，更是在教你如何坦然地、充满希望地面对不完美的自己。要么成功，要么成长，这个思维一直激励我不断挑战自己，尝试更新的技术，做更难的事情。",
       highlight: "成长型思维认为能力可以通过努力培养，热爱挑战，视失败为进阶的阶梯。",
+    },
+  },
+  {
+    title: "悉达多",
+    author: "[德] 赫尔曼·黑塞 (Hermann Hesse)",
+    date: "2024.09",
+    cover: "/books/xidaduo.jpg",
+    note: {
+      text: "如果你曾怀疑过书本上的教条，或者在寻找人生的意义，请读一读《悉达多》。它告诉我们：真正的智慧不是从老师那里听来的，也不是从经书中读来的，而是像悉达多那样，亲自走入繁华、走入孤独、走入痛苦与爱。「知识可以传达，但智慧不能。」这本书会让你明白，你走过的弯路、犯过的错，其实都是通往圆满的必经之路。",
+      highlight: "「知识可以传达，但智慧不能。」",
     },
   },
   {

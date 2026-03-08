@@ -224,11 +224,21 @@ export const enContent: LocaleContent = {
     {
       title: "Mindset: The New Psychology of Success",
       author: "Carol S. Dweck",
-      date: "2026.02",
+      date: "2025.02",
       cover: "/books/growth-mindset.jpg",
       note: {
         text: "Fixed vs growth mindset: we constantly toggle between the two. Fixed: talent is static, fear of judgment, effort as shame. Growth: ability can be developed, embrace challenge, failure as a step up. The book gave me the courage to tolerate failure—not just how to succeed, but how to face an imperfect self with calm and hope. Either succeed or grow; that idea keeps me challenging myself, trying newer tech and harder problems.",
         highlight: "Growth: ability can be developed, embrace challenge, failure as a step up.",
+      },
+    },
+    {
+      title: "Siddhartha",
+      author: "Hermann Hesse (Germany)",
+      date: "2024.09",
+      cover: "/books/xidaduo.jpg",
+      note: {
+        text: "If you've ever doubted what you were taught or searched for meaning in life, read Siddhartha. It shows that real wisdom isn't learned from teachers or scriptures—it's lived, as Siddhartha does, through worldliness, solitude, suffering and love. \"Knowledge can be conveyed, but not wisdom.\" The book makes clear that the wrong turns and mistakes you've made are part of the path to wholeness.",
+        highlight: "\"Knowledge can be conveyed, but not wisdom.\"",
       },
     },
     {
