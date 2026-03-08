@@ -15,14 +15,16 @@ export function VisitCount() {
     >
       <Script
         src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <p className="text-xs text-muted">
-        {label}{" "}
-        <span id="busuanzi_value_site_pv" className="font-mono font-medium text-secondary">
-          -
+        <span id="busuanzi_container_site_pv" style={{ display: "inline" }}>
+          {label}{" "}
+          <span id="busuanzi_value_site_pv" className="font-mono font-medium text-secondary">
+            ...
+          </span>
+          {suffix}
         </span>
-        {suffix}
       </p>
     </section>
   );
