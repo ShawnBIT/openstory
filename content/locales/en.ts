@@ -83,7 +83,7 @@ export const enContent: LocaleContent = {
       company: "Kuaishou Tech, Recommendation Model Dept",
       logo: "/experience/kuaishiou.png",
       role: "Lead for generative recommendation & ranking (live-streaming)",
-      period: "2021.08 — Present",
+      period: "2021.08 — 2026.03",
       type: "Full-time",
       description: [
         "Mentored 4 full-time and 3 interns; led end-to-end launch of OneLive and LARM for live-streaming.",
