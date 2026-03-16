@@ -4,7 +4,7 @@ import { projectEntries } from "@/content/data/projects";
 
 export const enContent: LocaleContent = {
   hero: {
-    name: "WangShen (Shawn)",
+    name: "WangShen",
     tags: [
       "Recommendation Algorithm Engineer",
       "Vibe Coding Enthusiast",
