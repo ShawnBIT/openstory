@@ -67,19 +67,4 @@
     border-color: var(--module-hover-border);
     box-shadow: var(--module-halo-shadow);
   }
-
-  /** Hero 顶栏：默认带柔光，悬停时略提亮边框 + 轻外光 */
-  .hero-panel.interactive-module {
-    @apply border-border-accent backdrop-blur-md;
-    background: color-mix(in srgb, var(--bg-elevated) 50%, transparent);
-    box-shadow:
-      0 0 0 1px var(--border-accent),
-      0 0 40px var(--accent-glow);
-  }
-
-  .hero-panel.interactive-module:hover,
-  .hero-panel.interactive-module:focus-within {
-    border-color: var(--module-hover-border);
-    box-shadow: var(--module-halo-shadow), 0 0 28px var(--accent-glow);
-  }
 }

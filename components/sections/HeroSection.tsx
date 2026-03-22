@@ -42,14 +42,18 @@ export function HeroSection() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="hero-panel interactive-module group relative flex w-full max-w-4xl flex-col p-8 md:p-12"
+        className="relative flex w-full max-w-4xl flex-col rounded-lg border border-border-accent bg-elevated/50 p-8 backdrop-blur-md md:p-12"
+        style={{
+          boxShadow:
+            "0 0 0 1px var(--border-accent), 0 0 40px var(--accent-glow)",
+        }}
       >
         {/* 上行：左侧头像 + 右侧文案，顶部对齐 */}
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-8">
           {/* 左侧：圆形头像 */}
           <motion.div
             variants={item}
-            className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border border-border-accent bg-surface transition-colors duration-200 group-hover:border-accent-green/50 md:h-40 md:w-40"
+            className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border border-border-accent bg-surface md:h-40 md:w-40"
           >
             <Image
               src="/wangshen.jpg"
