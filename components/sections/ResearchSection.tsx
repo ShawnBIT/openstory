@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FileText, Code2 } from "lucide-react";
 import { useLocale } from "@/components/providers/LanguageProvider";
 import { DateBadge } from "@/components/ui/DateBadge";
 import type { Paper } from "@/content/data/papers";
@@ -73,7 +72,13 @@ export function ResearchSection() {
         </p>
         <ul className="mt-6 space-y-4">
           {papers.map((paper, i) => (
-            <PaperItem key={`${paper.title}-${paper.year}`} paper={paper} index={i} coFirstLabel={labels.coFirst} />
+            <PaperItem
+              key={`${paper.title}-${paper.year}`}
+              paper={paper}
+              index={i}
+              coFirstLabel={labels.coFirst}
+              lang={lang}
+            />
           ))}
         </ul>
       </motion.div>
@@ -85,68 +90,83 @@ function PaperItem({
   paper,
   index,
   coFirstLabel,
+  lang,
 }: {
   paper: Paper;
   index: number;
   coFirstLabel: string;
+  lang: "zh" | "en";
 }) {
+  const primaryHref = paper.pdf ?? paper.scholar ?? paper.code;
+  const secondaryCodeHref = paper.pdf && paper.code ? paper.code : undefined;
+  const openLabel =
+    lang === "zh"
+      ? `打开论文：${paper.title}`
+      : `Open paper: ${paper.title}`;
+
+  const body = (
+    <>
+      <div className="flex flex-wrap items-start gap-2">
+        <h3 className="text-sm font-medium leading-snug text-primary pr-2">
+          {paper.title}
+        </h3>
+      </div>
+      {paper.authors && (
+        <p className="text-xs leading-relaxed text-secondary">
+          {highlightAuthor(
+            paper.coFirstCount
+              ? applyCoFirst(paper.authors, paper.coFirstCount)
+              : paper.authors
+          )}
+          {paper.coFirstCount != null && (
+            <span className="ml-1.5 text-muted">{coFirstLabel}</span>
+          )}
+        </p>
+      )}
+      <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded border border-border-accent bg-surface px-2 py-0.5 font-mono">
+            {paper.venue}
+          </span>
+          <DateBadge className="px-2 py-0.5 text-xs">{paper.year}</DateBadge>
+        </div>
+        {secondaryCodeHref && (
+          <a
+            href={secondaryCodeHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pointer-events-auto font-mono text-accent-green underline-offset-2 hover:underline"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {lang === "zh" ? "代码" : "Code"}
+          </a>
+        )}
+      </div>
+    </>
+  );
+
   return (
     <motion.li
       initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="interactive-module px-4 py-3"
+      className={`interactive-module relative px-4 py-3${primaryHref ? " cursor-pointer" : ""}`}
     >
-      <div className="flex flex-col gap-2">
-        <div className="flex flex-wrap items-start justify-between gap-2">
-          <h3 className="text-sm font-medium leading-snug text-primary pr-2">
-            {paper.title}
-          </h3>
-          <div className="flex shrink-0 items-center gap-2">
-            {paper.pdf && (
-              <a
-                href={paper.pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="PDF"
-                className="rounded p-1.5 text-muted transition-colors hover:bg-surface hover:text-accent-green"
-              >
-                <FileText className="h-4 w-4" />
-              </a>
-            )}
-            {paper.code && (
-              <a
-                href={paper.code}
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Code"
-                className="rounded p-1.5 text-muted transition-colors hover:bg-surface hover:text-accent-green"
-              >
-                <Code2 className="h-4 w-4" />
-              </a>
-            )}
-          </div>
-        </div>
-        {paper.authors && (
-          <p className="text-xs leading-relaxed text-secondary">
-            {highlightAuthor(
-              paper.coFirstCount
-                ? applyCoFirst(paper.authors, paper.coFirstCount)
-                : paper.authors
-            )}
-            {paper.coFirstCount != null && (
-              <span className="ml-1.5 text-muted">{coFirstLabel}</span>
-            )}
-          </p>
-        )}
-        <div className="flex flex-wrap items-center gap-2 text-xs text-muted">
-          <span className="rounded border border-border-accent bg-surface px-2 py-0.5 font-mono">
-            {paper.venue}
-          </span>
-          <DateBadge className="px-2 py-0.5 text-xs">{paper.year}</DateBadge>
-        </div>
-      </div>
+      {primaryHref ? (
+        <>
+          <a
+            href={primaryHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute inset-0 z-0 rounded-lg outline-none ring-inset focus-visible:ring-2 focus-visible:ring-accent-green/40"
+            aria-label={openLabel}
+          />
+          <div className="relative z-10 flex flex-col gap-2 pointer-events-none">{body}</div>
+        </>
+      ) : (
+        <div className="flex flex-col gap-2">{body}</div>
+      )}
     </motion.li>
   );
 }
