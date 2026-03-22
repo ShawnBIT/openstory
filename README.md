@@ -94,5 +94,6 @@ npm run lint
 - **生活相册**：`content/data/life.ts`，图片放 `public/gallery/<子目录>/`
 - **喜欢的书**：`content/data/books.ts`，封面放 `public/books/`
 - **AI 工具推荐**：`content/data/tools.ts`（名称、中英推荐语、链接、logo、标签、推荐语高亮），logo 放 `public/tools/`
+- **项目**：`content/data/projects.ts`，封面/logo 放 `public/projects/` 等
 
 时间展示统一使用 `DateBadge` 组件（圆角描边块，浅色无底、深色微填充）。

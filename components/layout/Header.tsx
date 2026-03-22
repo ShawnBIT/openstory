@@ -51,18 +51,18 @@ export function Header() {
           {lang === "zh" ? "EN" : "中文"}
         </button>
         <button
-            type="button"
-            onClick={toggleTheme}
-            title={theme === "dark" ? "切换到浅色" : "切换到深色"}
-            className="rounded p-2 text-secondary transition-colors hover:bg-surface hover:text-primary"
-            aria-label={theme === "dark" ? "切换到浅色模式" : "切换到深色模式"}
-          >
-            {theme === "dark" ? (
-              <Sun className="h-4 w-4" />
-            ) : (
-              <Moon className="h-4 w-4" />
-            )}
-          </button>
+          type="button"
+          onClick={toggleTheme}
+          title={theme === "dark" ? "切换到浅色" : "切换到深色"}
+          className="rounded p-2 text-secondary transition-colors hover:bg-surface hover:text-primary"
+          aria-label={theme === "dark" ? "切换到浅色模式" : "切换到深色模式"}
+        >
+          {theme === "dark" ? (
+            <Sun className="h-4 w-4" />
+          ) : (
+            <Moon className="h-4 w-4" />
+          )}
+        </button>
       </nav>
     </motion.header>
   );

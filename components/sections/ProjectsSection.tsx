@@ -175,4 +175,3 @@ function ProjectCard({
     </motion.li>
   );
 }
-
