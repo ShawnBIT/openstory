@@ -5,7 +5,7 @@ export const site = {
 } as const;
 
 export const hero = {
-  name: "WangShen",
+  name: "WangShen (Shawn)",
   tags: [
     "推荐算法工程师",
     "Vibe Coding爱好者",
