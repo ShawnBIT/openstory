@@ -46,7 +46,7 @@ function CompetitionCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="rounded-lg border border-border bg-elevated/50 p-5 backdrop-blur-sm md:p-6"
+      className="group interactive-module p-5 md:p-6"
     >
       <div className="flex flex-col gap-5 md:flex-row md:items-center md:gap-8">
         <div className="flex-1 space-y-4">
@@ -100,7 +100,7 @@ function CompetitionCard({
         </div>
         <div className="shrink-0 md:w-56">
           {competition.image ? (
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-surface">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-surface transition-colors duration-200 group-hover:border-accent-green/50">
               <Image
                 src={competition.image}
                 alt="与 CEO 合影"

@@ -80,7 +80,7 @@ function ToolItem({
         href={tool.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-start gap-4 rounded-lg border border-border bg-elevated/50 px-4 py-3 backdrop-blur-sm transition-all duration-200 hover:border-accent-green hover:bg-elevated hover:ring-2 hover:ring-accent-green/20 cursor-pointer"
+        className="group interactive-module flex cursor-pointer items-start gap-4 px-4 py-3"
       >
         <span className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border bg-surface text-muted transition-colors duration-200 group-hover:border-accent-green/50">
           {tool.logo ? (

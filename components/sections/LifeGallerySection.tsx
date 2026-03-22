@@ -45,7 +45,7 @@ function LifeEntryCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.06 }}
-      className="rounded-lg border border-border bg-elevated/50 p-5 backdrop-blur-sm md:p-6"
+      className="interactive-module p-5 md:p-6"
     >
       <div className="mb-4 flex flex-wrap items-baseline gap-3">
         <DateBadge>{entry.date}</DateBadge>

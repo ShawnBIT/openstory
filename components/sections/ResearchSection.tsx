@@ -96,7 +96,7 @@ function PaperItem({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="rounded-lg border border-border bg-elevated/50 px-4 py-3 backdrop-blur-sm"
+      className="interactive-module px-4 py-3"
     >
       <div className="flex flex-col gap-2">
         <div className="flex flex-wrap items-start justify-between gap-2">

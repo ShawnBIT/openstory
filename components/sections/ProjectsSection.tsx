@@ -114,7 +114,7 @@ function ProjectCard({
         href={project.repo}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex flex-col gap-3 rounded-lg border border-border bg-elevated/50 px-4 py-3 backdrop-blur-sm transition-all duration-200 hover:border-accent-green hover:bg-elevated hover:ring-2 hover:ring-accent-green/20 cursor-pointer sm:flex-row sm:items-start sm:gap-4 md:px-5 md:py-4"
+        className="group interactive-module flex cursor-pointer flex-col gap-3 px-4 py-3 sm:flex-row sm:items-start sm:gap-4 md:px-5 md:py-4"
       >
         <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg border border-border bg-surface transition-colors duration-200 group-hover:border-accent-green/50">
           {project.logo ? (

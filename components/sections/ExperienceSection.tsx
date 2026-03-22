@@ -70,9 +70,9 @@ function ExperienceItem({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="flex gap-4 rounded-lg border border-border bg-elevated/50 px-4 py-3 backdrop-blur-sm"
+      className="group interactive-module flex gap-4 px-4 py-3"
     >
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-surface">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-surface transition-colors duration-200 group-hover:border-accent-green/50">
         {entry.logo ? (
           <Image
             src={entry.logo}

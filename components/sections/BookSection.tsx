@@ -105,14 +105,14 @@ function BookItem({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="rounded-lg border border-border bg-elevated/50 backdrop-blur-sm"
+      className="interactive-module"
     >
       {book.link ? (
         <a
           href={book.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex gap-4 px-4 py-3 transition-opacity hover:opacity-90"
+          className="flex gap-4 px-4 py-3"
         >
           {inner}
         </a>
