@@ -17,11 +17,11 @@
     --accent-green: #22c55e;
     --accent-blue: #3b82f6;
     --accent-glow: rgba(34, 197, 94, 0.15);
-    /* 卡片 hover 光圈：绿 + 轻微青边光 */
+    /* 卡片 hover：半透明绿边 + 适中外光（略亮于上一版，仍无青边） */
+    --module-hover-border: rgba(34, 197, 94, 0.5);
     --module-halo-shadow:
-      0 0 0 1px var(--accent-green),
-      0 0 20px rgba(34, 197, 94, 0.28),
-      0 0 44px rgba(6, 182, 212, 0.14);
+      0 0 18px rgba(34, 197, 94, 0.1),
+      0 0 32px rgba(34, 197, 94, 0.05);
     --ring: var(--border-accent);
     --foreground: var(--text-primary);
   }
@@ -39,10 +39,10 @@
     --accent-green: #16a34a;
     --accent-blue: #2563eb;
     --accent-glow: rgba(22, 163, 74, 0.12);
+    --module-hover-border: rgba(22, 163, 74, 0.48);
     --module-halo-shadow:
-      0 0 0 1px var(--accent-green),
-      0 0 18px rgba(22, 163, 74, 0.22),
-      0 0 40px rgba(6, 182, 212, 0.1);
+      0 0 16px rgba(22, 163, 74, 0.09),
+      0 0 28px rgba(22, 163, 74, 0.045);
     --ring: var(--border-accent);
     --foreground: var(--text-primary);
   }
@@ -54,7 +54,7 @@
 
 @layer components {
   /**
-   * 全站统一：列表/区块型卡片在悬停或内部可聚焦时显示绿色光圈（与 Projects 卡片一致）
+   * 全站统一：卡片悬停/聚焦时轻微绿边 + 极淡外光（低调）
    */
   .interactive-module {
     @apply rounded-lg border border-border backdrop-blur-sm transition-all duration-200;
@@ -63,11 +63,12 @@
 
   .interactive-module:hover,
   .interactive-module:focus-within {
-    @apply border-accent-green bg-elevated;
+    @apply bg-elevated;
+    border-color: var(--module-hover-border);
     box-shadow: var(--module-halo-shadow);
   }
 
-  /** Hero 顶栏：默认带柔光，悬停时同样套光圈 */
+  /** Hero 顶栏：默认带柔光，悬停时略提亮边框 + 轻外光 */
   .hero-panel.interactive-module {
     @apply border-border-accent backdrop-blur-md;
     background: color-mix(in srgb, var(--bg-elevated) 50%, transparent);
@@ -78,6 +79,7 @@
 
   .hero-panel.interactive-module:hover,
   .hero-panel.interactive-module:focus-within {
-    box-shadow: var(--module-halo-shadow);
+    border-color: var(--module-hover-border);
+    box-shadow: var(--module-halo-shadow), 0 0 28px var(--accent-glow);
   }
 }
