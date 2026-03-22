@@ -60,14 +60,14 @@ openstory/
 3. **Education** — 教育背景（学校、学位、时间、导师、研究方向等），支持学校 logo
 4. **Experience** — 工作与实习（公司、职位、时间、类型、Mentor、描述分点/高亮），支持公司 logo
 5. **Research** — 论文列表（标题、作者、共同一作 †、venue、年份、PDF/Code 链接）
-6. **Projects** — AI 辅助开发项目展示
-7. **Competitions** — 比赛经历（名称、时间、名次、洞察、合影）
+6. **Competitions** — 比赛经历（名称、时间、名次、洞察、合影）
+7. **Projects** — AI 辅助开发项目展示
 8. **Tools** — 常用 AI 工具推荐（名称、标题、推荐语、链接、logo，支持中英与推荐语高亮）
 9. **Books** — 喜欢的书（封面、书名、作者、推荐日期、推荐语与高亮）
 10. **Life** — 生活与相册（日期、标题、引用、照片网格）
 11. **Footer**
 
-导航栏锚点：Home、Education、Experience、Research、Projects、Competitions、**Tools**、Books、Life。支持语言切换（中/EN）与主题切换（深/浅色）。
+导航栏锚点：Home、Education、Experience、Research、Competitions、Projects、**Tools**、Books、Life。支持语言切换（中/EN）与主题切换（深/浅色）。
 
 ---
 

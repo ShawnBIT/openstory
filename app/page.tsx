@@ -18,8 +18,8 @@ export default function Home() {
       <EducationSection />
       <ExperienceSection />
       <ResearchSection />
-      <ProjectsSection />
       <CompetitionsSection />
+      <ProjectsSection />
       <ToolsSection />
       <BookSection />
       <LifeGallerySection />
