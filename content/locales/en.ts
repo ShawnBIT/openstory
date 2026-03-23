@@ -222,16 +222,6 @@ export const enContent: LocaleContent = {
   tools: toolEntries,
   books: [
     {
-      title: "Mindset: The New Psychology of Success",
-      author: "Carol S. Dweck",
-      date: "2025.02",
-      cover: "/books/growth-mindset.jpg",
-      note: {
-        text: "Fixed vs growth mindset: we constantly toggle between the two. Fixed: talent is static, fear of judgment, effort as shame. Growth: ability can be developed, embrace challenge, failure as a step up. The book gave me the courage to tolerate failure—not just how to succeed, but how to face an imperfect self with calm and hope. Either succeed or grow; that idea keeps me challenging myself, trying newer tech and harder problems.",
-        highlight: "Growth: ability can be developed, embrace challenge, failure as a step up.",
-      },
-    },
-    {
       title: "Siddhartha",
       author: "Hermann Hesse (Germany)",
       date: "2024.09",
@@ -249,6 +239,16 @@ export const enContent: LocaleContent = {
       note: {
         text: "As runners we all know the struggle of hitting the wall and the freedom after the breakthrough. Murakami captures it perfectly: \"Pain is inevitable. Suffering is optional.\" For me the marathon isn't just 42.195 km—it's a practice of self-confirmation. \"For me, the most important thing was to have beaten my previous self, even if only by a little.\" If you've ever run alone through the morning streets, searching for the edge of your will in the sound of your heartbeat, this book is fuel. It tells you why we have to run.",
         highlight: "For me, the most important thing was to have beaten my previous self, even if only by a little.",
+      },
+    },
+    {
+      title: "Mindset: The New Psychology of Success",
+      author: "Carol S. Dweck",
+      date: "2023.02",
+      cover: "/books/growth-mindset.jpg",
+      note: {
+        text: "Fixed vs growth mindset: we constantly toggle between the two. Fixed: talent is static, fear of judgment, effort as shame. Growth: ability can be developed, embrace challenge, failure as a step up. The book gave me the courage to tolerate failure—not just how to succeed, but how to face an imperfect self with calm and hope. Either succeed or grow; that idea keeps me challenging myself, trying newer tech and harder problems.",
+        highlight: "Growth: ability can be developed, embrace challenge, failure as a step up.",
       },
     },
     {
