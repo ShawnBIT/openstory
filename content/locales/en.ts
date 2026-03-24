@@ -1,5 +1,4 @@
 import type { LocaleContent } from "./types";
-import { toolEntries } from "@/content/data/tools";
 import { projectEntries } from "@/content/data/projects";
 
 export const enContent: LocaleContent = {
@@ -32,8 +31,6 @@ export const enContent: LocaleContent = {
     projectsSub: "",
     competitions: "Competitions",
     competitionsSub: "",
-    tools: "AI Tools",
-    toolsSub: "AI tools I use and recommend",
     books: "Books",
     booksSub: "",
     life: "Life & Gallery",
@@ -47,7 +44,6 @@ export const enContent: LocaleContent = {
     coFirst: "† Co-first author",
     experienceEmpty: "No entries yet. Add content in content/data/experience.ts.",
     booksEmpty: "No books yet. Add content in content/data/books.ts.",
-    toolsEmpty: "No tools yet. Add content in content/data/tools.ts.",
     projectsEmpty: "No projects yet. Add content in content/data/projects.ts.",
   },
   education: [
@@ -219,7 +215,6 @@ export const enContent: LocaleContent = {
     },
   ],
   projects: projectEntries,
-  tools: toolEntries,
   books: [
     {
       title: "Siddhartha",

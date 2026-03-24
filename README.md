@@ -1,6 +1,6 @@
 # Open Story
 
-**What's your open story.** 推荐算法工程师个人站，单页展示教育、经历、论文、比赛、AI 工具推荐、喜欢的书与生活相册。支持中/英切换与深色/浅色主题。
+**What's your open story.** 推荐算法工程师个人站，单页展示教育、经历、论文、比赛、喜欢的书与生活相册。支持中/英切换与深色/浅色主题。
 
 ---
 
@@ -17,7 +17,7 @@
 | 工具     | clsx、tailwind-merge、class-variance-authority |
 
 - **主题**：`darkMode: "class"`，通过 ThemeProvider + `html.dark` / `html.light` 切换，首屏前脚本注入避免闪烁。
-- **多语言**：LanguageProvider 提供中/英切换，各区块文案来自 `content/locales/zh.ts`、`content/locales/en.ts`，论文与工具数据可配中英字段。
+- **多语言**：LanguageProvider 提供中/英切换，各区块文案来自 `content/locales/zh.ts`、`content/locales/en.ts`，论文等数据可配中英字段。
 - **开发**：`npm run dev` 使用 Turbopack。
 
 ---
@@ -34,11 +34,11 @@ openstory/
 ├── components/
 │   ├── layout/            # Header、Footer
 │   ├── sections/          # Hero、VisitCount、Education、Experience、Research、
-│   │                      # Projects、Competitions、Tools、Book、LifeGallery
+│   │                      # Projects、Competitions、Book、LifeGallery
 │   ├── providers/         # ThemeProvider、LanguageProvider
 │   └── ui/                # DateBadge、Button 等
 ├── content/
-│   ├── data/              # 论文、比赛、教育、经历、生活、书籍、工具等数据（.ts）
+│   ├── data/              # 论文、比赛、教育、经历、生活、书籍等数据（.ts）
 │   └── locales/           # 多语言：zh.ts、en.ts、types.ts、index.ts
 ├── lib/
 │   ├── constants.ts       # 站点名、hero 文案与社交链接
@@ -47,8 +47,7 @@ openstory/
     ├── education/         # 学校 logo (pku.png, bit.svg)
     ├── experience/        # 公司 logo
     ├── gallery/           # 生活相册 (iceland, thirty-birthday, fullm)
-    ├── books/             # 书籍封面
-    └── tools/             # AI 工具 logo（如 shandianshuo.png）
+    └── books/             # 书籍封面
 ```
 
 ---
@@ -62,12 +61,11 @@ openstory/
 5. **Research** — 论文列表（标题、作者、共同一作 †、venue、年份、PDF/Code 链接）
 6. **Competitions** — 比赛经历（名称、时间、名次、洞察、合影）
 7. **Projects** — AI 辅助开发项目展示
-8. **Tools** — 常用 AI 工具推荐（名称、标题、推荐语、链接、logo，支持中英与推荐语高亮）
-9. **Books** — 喜欢的书（封面、书名、作者、推荐日期、推荐语与高亮）
-10. **Life** — 生活与相册（日期、标题、引用、照片网格）
-11. **Footer**
+8. **Books** — 喜欢的书（封面、书名、作者、推荐日期、推荐语与高亮）
+9. **Life** — 生活与相册（日期、标题、引用、照片网格）
+10. **Footer**
 
-导航栏锚点：Home、Education、Experience、Research、Competitions、Projects、**Tools**、Books、Life。支持语言切换（中/EN）与主题切换（深/浅色）。
+导航栏锚点：Home、Education、Experience、Research、Competitions、Projects、Books、Life。支持语言切换（中/EN）与主题切换（深/浅色）。
 
 ---
 
@@ -93,7 +91,6 @@ npm run lint
 - **经历**：`content/data/experience.ts`（可填 `logo`、`mentor`/`mentorUrl`、`description` 分点或高亮）
 - **生活相册**：`content/data/life.ts`，图片放 `public/gallery/<子目录>/`
 - **喜欢的书**：`content/data/books.ts`，封面放 `public/books/`
-- **AI 工具推荐**：`content/data/tools.ts`（名称、中英推荐语、链接、logo、标签、推荐语高亮），logo 放 `public/tools/`
 - **项目**：`content/data/projects.ts`，封面/logo 放 `public/projects/` 等
 
 时间展示统一使用 `DateBadge` 组件（圆角描边块，浅色无底、深色微填充）。
