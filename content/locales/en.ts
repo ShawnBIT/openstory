@@ -6,7 +6,7 @@ export const enContent: LocaleContent = {
     name: "WangShen (Shawn)",
     tags: [
       "Recommendation Algorithm Engineer",
-      "Agentic Coding Engineer",
+      "Agentic Product Builder",
       "Marathon Runner",
     ],
     slogan:

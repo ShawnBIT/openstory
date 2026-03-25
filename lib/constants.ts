@@ -8,7 +8,7 @@ export const hero = {
   name: "WangShen (Shawn)",
   tags: [
     "推荐算法工程师",
-    "Agentic Coding工程师",
+    "Agentic产品构建者",
     "马拉松初级选手",
   ],
   slogan:
