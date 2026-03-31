@@ -7,6 +7,7 @@ import { SiGooglescholar, SiGithub, SiZhihu } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
 import { Play, Pause } from "lucide-react";
 import { useLocale } from "@/components/providers/LanguageProvider";
+import { ParticleCanvas } from "@/components/ui/ParticleCanvas";
 
 /** 与 hero.socials 顺序一致：Google Scholar、GitHub、知乎、小红书、Email；小红书用文字「小红书」便于辨认 */
 const socialIcons = [SiGooglescholar, SiGithub, SiZhihu, null, HiOutlineMail] as const;
@@ -76,8 +77,10 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[calc(100vh-3.5rem)] items-center justify-center px-6 pt-14"
+      className="relative flex min-h-[calc(100vh-3.5rem)] items-center justify-center overflow-hidden px-6 pt-14"
     >
+      {/* 粒子星空背景 */}
+      <ParticleCanvas />
       {/* 线性边框 + 毛玻璃容器：左侧头像位 + 右侧文案居中 + 下方座右铭预留 */}
       <motion.div
         variants={container}
