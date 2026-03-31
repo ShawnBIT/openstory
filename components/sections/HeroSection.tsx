@@ -1,9 +1,11 @@
 "use client";
 
+import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SiGooglescholar, SiGithub, SiZhihu } from "react-icons/si";
 import { HiOutlineMail } from "react-icons/hi";
+import { Play, Pause } from "lucide-react";
 import { useLocale } from "@/components/providers/LanguageProvider";
 
 /** 与 hero.socials 顺序一致：Google Scholar、GitHub、知乎、小红书、Email；小红书用文字「小红书」便于辨认 */
@@ -32,6 +34,45 @@ const item = {
 export function HeroSection() {
   const { content } = useLocale();
   const hero = content.hero;
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const audio = new Audio("/music.mp3");
+    audio.loop = true;
+    audioRef.current = audio;
+
+    const onTimeUpdate = () => {
+      if (audio.duration) {
+        setProgress(audio.currentTime / audio.duration);
+      }
+    };
+    audio.addEventListener("timeupdate", onTimeUpdate);
+
+    return () => {
+      audio.removeEventListener("timeupdate", onTimeUpdate);
+      audio.pause();
+    };
+  }, []);
+
+  const togglePlay = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+    setIsPlaying(!isPlaying);
+  }, [isPlaying]);
+
+  // 进度条圆环参数
+  const radius = 70;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference * (1 - progress);
+
   return (
     <section
       id="hero"
@@ -50,19 +91,65 @@ export function HeroSection() {
       >
         {/* 上行：左侧头像 + 右侧文案，顶部对齐 */}
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-8">
-          {/* 左侧：圆形头像 */}
+          {/* 左侧：头像唱片播放器 */}
           <motion.div
             variants={item}
-            className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border border-border-accent bg-surface md:h-40 md:w-40"
+            className="relative h-32 w-32 shrink-0 md:h-40 md:w-40"
           >
-            <Image
-              src="/wangshen.jpg"
-              alt={hero.name}
-              fill
-              sizes="(max-width: 768px) 128px, 160px"
-              className="object-cover object-center"
-              priority
-            />
+            {/* 进度圆环 */}
+            <svg
+              className="absolute inset-0 -rotate-90"
+              viewBox="0 0 160 160"
+              fill="none"
+            >
+              {/* 背景轨道 */}
+              <circle
+                cx="80" cy="80" r={radius}
+                stroke="var(--border-accent)"
+                strokeWidth="3"
+                opacity="0.4"
+              />
+              {/* 进度弧 */}
+              <circle
+                cx="80" cy="80" r={radius}
+                stroke="var(--accent-green)"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeDasharray={circumference}
+                strokeDashoffset={strokeDashoffset}
+                className="transition-[stroke-dashoffset] duration-300"
+              />
+            </svg>
+            {/* 旋转头像 */}
+            <div
+              className={`absolute inset-[6px] overflow-hidden rounded-full border-2 border-border-accent bg-surface ${
+                isPlaying ? "avatar-spinning" : ""
+              }`}
+            >
+              <Image
+                src="/wangshen.jpg"
+                alt={hero.name}
+                fill
+                sizes="(max-width: 768px) 128px, 160px"
+                className="object-cover object-center"
+                priority
+              />
+            </div>
+            {/* 播放/暂停按钮 — 底部 */}
+            <button
+              type="button"
+              onClick={togglePlay}
+              className="absolute -bottom-3 left-1/2 -translate-x-1/2 flex items-center justify-center rounded-full opacity-80 transition-opacity hover:opacity-100"
+              aria-label={isPlaying ? "暂停" : "播放"}
+            >
+              <div className="flex h-8 w-8 items-center justify-center rounded-full border border-border-accent bg-black/60 backdrop-blur-sm">
+                {isPlaying ? (
+                  <Pause className="h-4 w-4 text-white" />
+                ) : (
+                  <Play className="h-4 w-4 translate-x-[1px] text-white" />
+                )}
+              </div>
+            </button>
           </motion.div>
           {/* 右侧：文案与图标与左边图片顶部对齐，水平居中 */}
           <div className="flex min-w-0 flex-1 flex-col items-center justify-start pt-0 text-center sm:pt-1">

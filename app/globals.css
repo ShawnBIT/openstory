@@ -70,3 +70,18 @@
     box-shadow: var(--module-halo-shadow);
   }
 }
+
+/* 头像唱片旋转动画 */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.avatar-spinning {
+  animation: spin-slow 45s linear infinite;
+}
+
+.avatar-paused {
+  animation: spin-slow 45s linear infinite;
+  animation-play-state: paused;
+}
